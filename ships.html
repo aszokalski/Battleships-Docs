@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ships module &mdash; Battleships 0.0.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="utils module" href="utils.html" />
+    <link rel="prev" title="players module" href="players.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Battleships
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="README.html">Quickstart</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">app</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="boards.html">boards module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config.html">config module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="game.html">game module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="players.html">players module</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">ships module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ships.Battleship"><code class="docutils literal notranslate"><span class="pre">Battleship</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ships.Carrier"><code class="docutils literal notranslate"><span class="pre">Carrier</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ships.Destroyer"><code class="docutils literal notranslate"><span class="pre">Destroyer</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ships.HitDestroyedSquareError"><code class="docutils literal notranslate"><span class="pre">HitDestroyedSquareError</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ships.HitOutsideOfRangeError"><code class="docutils literal notranslate"><span class="pre">HitOutsideOfRangeError</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ships.IncorrectOrientationError"><code class="docutils literal notranslate"><span class="pre">IncorrectOrientationError</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ships.LocationOutsideOfRangeError"><code class="docutils literal notranslate"><span class="pre">LocationOutsideOfRangeError</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ships.PetrolBoat"><code class="docutils literal notranslate"><span class="pre">PetrolBoat</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ships.Ship"><code class="docutils literal notranslate"><span class="pre">Ship</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ships.Ship.location"><code class="docutils literal notranslate"><span class="pre">Ship.location</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ships.Ship.orientation"><code class="docutils literal notranslate"><span class="pre">Ship.orientation</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ships.Ship.size"><code class="docutils literal notranslate"><span class="pre">Ship.size</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ships.Ship.squares"><code class="docutils literal notranslate"><span class="pre">Ship.squares</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ships.Ship.strength"><code class="docutils literal notranslate"><span class="pre">Ship.strength</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ships.Ship.take_a_hit"><code class="docutils literal notranslate"><span class="pre">Ship.take_a_hit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ships.Ship.uuid"><code class="docutils literal notranslate"><span class="pre">Ship.uuid</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#ships.Submarine"><code class="docutils literal notranslate"><span class="pre">Submarine</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ships.UnlocatedShipHitError"><code class="docutils literal notranslate"><span class="pre">UnlocatedShipHitError</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="utils.html">utils module</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Battleships</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">app</a></li>
+      <li class="breadcrumb-item active">ships module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/ships.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-ships">
+<span id="ships-module"></span><h1>ships module<a class="headerlink" href="#module-ships" title="Permalink to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="ships.Battleship">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ships.</span></span><span class="sig-name descname"><span class="pre">Battleship</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ships.Battleship" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#ships.Ship" title="ships.Ship"><code class="xref py py-class docutils literal notranslate"><span class="pre">Ship</span></code></a></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ships.Carrier">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ships.</span></span><span class="sig-name descname"><span class="pre">Carrier</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ships.Carrier" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#ships.Ship" title="ships.Ship"><code class="xref py py-class docutils literal notranslate"><span class="pre">Ship</span></code></a></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ships.Destroyer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ships.</span></span><span class="sig-name descname"><span class="pre">Destroyer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ships.Destroyer" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#ships.Ship" title="ships.Ship"><code class="xref py py-class docutils literal notranslate"><span class="pre">Ship</span></code></a></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="ships.HitDestroyedSquareError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ships.</span></span><span class="sig-name descname"><span class="pre">HitDestroyedSquareError</span></span><a class="headerlink" href="#ships.HitDestroyedSquareError" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">IndexError</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="ships.HitOutsideOfRangeError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ships.</span></span><span class="sig-name descname"><span class="pre">HitOutsideOfRangeError</span></span><a class="headerlink" href="#ships.HitOutsideOfRangeError" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">IndexError</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="ships.IncorrectOrientationError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ships.</span></span><span class="sig-name descname"><span class="pre">IncorrectOrientationError</span></span><a class="headerlink" href="#ships.IncorrectOrientationError" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ValueError</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="ships.LocationOutsideOfRangeError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ships.</span></span><span class="sig-name descname"><span class="pre">LocationOutsideOfRangeError</span></span><a class="headerlink" href="#ships.LocationOutsideOfRangeError" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">IndexError</span></code></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ships.PetrolBoat">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ships.</span></span><span class="sig-name descname"><span class="pre">PetrolBoat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ships.PetrolBoat" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#ships.Ship" title="ships.Ship"><code class="xref py py-class docutils literal notranslate"><span class="pre">Ship</span></code></a></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ships.Ship">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ships.</span></span><span class="sig-name descname"><span class="pre">Ship</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ships.Ship" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py property">
+<dt class="sig sig-object py" id="ships.Ship.location">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">location</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">tuple</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#ships.Ship.location" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="ships.Ship.orientation">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">orientation</span></span><a class="headerlink" href="#ships.Ship.orientation" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="ships.Ship.size">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">size</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#ships.Ship.size" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="ships.Ship.squares">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">squares</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span></em><a class="headerlink" href="#ships.Ship.squares" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="ships.Ship.strength">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">strength</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#ships.Ship.strength" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ships.Ship.take_a_hit">
+<span class="sig-name descname"><span class="pre">take_a_hit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targetIndex</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ships.Ship.take_a_hit" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="ships.Ship.uuid">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">uuid</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#ships.Ship.uuid" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ships.Submarine">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ships.</span></span><span class="sig-name descname"><span class="pre">Submarine</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ships.Submarine" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#ships.Ship" title="ships.Ship"><code class="xref py py-class docutils literal notranslate"><span class="pre">Ship</span></code></a></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="ships.UnlocatedShipHitError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ships.</span></span><span class="sig-name descname"><span class="pre">UnlocatedShipHitError</span></span><a class="headerlink" href="#ships.UnlocatedShipHitError" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ValueError</span></code></p>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="players.html" class="btn btn-neutral float-left" title="players module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="utils.html" class="btn btn-neutral float-right" title="utils module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Adam Szokalski.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

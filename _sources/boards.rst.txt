@@ -1,0 +1,7 @@
+boards module
+=============
+
+.. automodule:: boards
+   :members:
+   :undoc-members:
+   :show-inheritance:

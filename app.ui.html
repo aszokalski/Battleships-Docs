@@ -49,11 +49,15 @@
 <li class="toctree-l3"><a class="reference internal" href="app.game.html">app.game module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="app.players.html">app.players module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="app.ships.html">app.ships module</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">app.ui module</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">app.ui module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#app.ui.Styles"><code class="docutils literal notranslate"><span class="pre">Styles</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#app.ui.CLI"><code class="docutils literal notranslate"><span class="pre">CLI</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="app.utils.html">app.utils module</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="app.html#module-contents">Module contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="app.html#module-app">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -83,8 +87,117 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="app-ui-module">
-<h1>app.ui module<a class="headerlink" href="#app-ui-module" title="Permalink to this heading"></a></h1>
+  <section id="module-app.ui">
+<span id="app-ui-module"></span><h1>app.ui module<a class="headerlink" href="#module-app.ui" title="Permalink to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="app.ui.Styles">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Styles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">module</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qualname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundary</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.ui.Styles" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">IntEnum</span></code></p>
+<p>Text styles for the CLI</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>IntEnum</strong> (<em>_type_</em>) – enum type</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.ui.Styles.GRID">
+<span class="sig-name descname"><span class="pre">GRID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#app.ui.Styles.GRID" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.ui.Styles.SHIP">
+<span class="sig-name descname"><span class="pre">SHIP</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#app.ui.Styles.SHIP" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.ui.Styles.DESTROYED">
+<span class="sig-name descname"><span class="pre">DESTROYED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#app.ui.Styles.DESTROYED" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.ui.Styles.SELECTOR">
+<span class="sig-name descname"><span class="pre">SELECTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4</span></em><a class="headerlink" href="#app.ui.Styles.SELECTOR" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.ui.Styles.ERROR">
+<span class="sig-name descname"><span class="pre">ERROR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">5</span></em><a class="headerlink" href="#app.ui.Styles.ERROR" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="app.ui.CLI">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">CLI</span></span><a class="headerlink" href="#app.ui.CLI" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="app.ui.CLI.show_board">
+<span class="sig-name descname"><span class="pre">show_board</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">board</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="app.boards.html#app.boards.Board" title="app.boards.Board"><span class="pre">Board</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">hilight</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">None</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">tuple</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ommit_locations</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skip_refresh</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#app.ui.CLI.show_board" title="Permalink to this definition"></a></dt>
+<dd><p>Prints board to the console.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>board</strong> (<a class="reference internal" href="app.boards.html#app.boards.Board" title="app.boards.Board"><em>Board</em></a>) – board to print</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="app.ui.CLI.get_location">
+<span class="sig-name descname"><span class="pre">get_location</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">board</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="app.boards.html#app.boards.Board" title="app.boards.Board"><span class="pre">Board</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span></span></span><a class="headerlink" href="#app.ui.CLI.get_location" title="Permalink to this definition"></a></dt>
+<dd><p>Gets a location from the user</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>board</strong> (<a class="reference internal" href="app.boards.html#app.boards.Board" title="app.boards.Board"><em>Board</em></a>) – board to get the location from</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>(x, y) location</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>tuple</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="app.ui.CLI.get_move_ship_data">
+<span class="sig-name descname"><span class="pre">get_move_ship_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ship</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="app.ships.html#app.ships.Ship" title="app.ships.Ship"><span class="pre">Ship</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">board</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="app.boards.html#app.boards.Board" title="app.boards.Board"><span class="pre">Board</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span></span></span><a class="headerlink" href="#app.ui.CLI.get_move_ship_data" title="Permalink to this definition"></a></dt>
+<dd><p>Gets the new position and orientation of a ship from user.
+It ensures validity of the data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ship</strong> (<a class="reference internal" href="app.ships.html#app.ships.Ship" title="app.ships.Ship"><em>Ship</em></a>) – ship to move</p></li>
+<li><p><strong>board</strong> (<a class="reference internal" href="app.boards.html#app.boards.Board" title="app.boards.Board"><em>Board</em></a>) – board to move the ship on</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>(x, y, orientation)</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>tuple</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="app.ui.CLI.wrap">
+<span class="sig-name descname"><span class="pre">wrap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">function</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.ui.CLI.wrap" title="Permalink to this definition"></a></dt>
+<dd><p>Wraps a function to catch keyboard interrupts or other errors and close the screen</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>function</strong> (<em>Callable</em>) – function to wrap</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="app.ui.CLI.close">
+<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app.ui.CLI.close" title="Permalink to this definition"></a></dt>
+<dd><p>Closes the screen</p>
+</dd></dl>
+
+</dd></dl>
+
 </section>
 
 

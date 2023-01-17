@@ -62,7 +62,7 @@
 <li class="toctree-l3"><a class="reference internal" href="app.utils.html">app.utils module</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="app.html#module-contents">Module contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="app.html#module-app">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -175,10 +175,11 @@
 <dd class="field-even"><p><a class="reference internal" href="app.ships.html#app.ships.LocationOutsideOfRangeError" title="app.ships.LocationOutsideOfRangeError"><strong>LocationOutsideOfRangeError</strong></a> – if the ship would not fit on the board</p>
 </dd>
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>list of the locations of the squares of the ship</p>
+<dd class="field-odd"><p>tuple[0]: list of the locations of the squares of the ship,
+tuple[1]: list of the locations of the squares surrounding the ship</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p>list</p>
+<dd class="field-even"><p>tuple[list, list]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -217,7 +218,7 @@
 </dd>
 <dt class="field-even">Raises</dt>
 <dd class="field-even"><ul class="simple">
-<li><p><a class="reference internal" href="#app.boards.CellAlreadyOccupiedError" title="app.boards.CellAlreadyOccupiedError"><strong>CellAlreadyOccupiedError</strong></a> – if the ship would overlap with another ship</p></li>
+<li><p><a class="reference internal" href="#app.boards.CellAlreadyOccupiedError" title="app.boards.CellAlreadyOccupiedError"><strong>CellAlreadyOccupiedError</strong></a> – if the ship would overlap with or be to close to another ship</p></li>
 <li><p><strong>LocationOutsideOfRange</strong> – if the ship would not fit on the board</p></li>
 <li><p><a class="reference internal" href="#app.boards.ShipDoesNotExistError" title="app.boards.ShipDoesNotExistError"><strong>ShipDoesNotExistError</strong></a> – if the ship does not exist</p></li>
 </ul>

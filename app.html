@@ -45,6 +45,7 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">app package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="app.boards.html">app.boards module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="app.cli_config.html">app.cli_config module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="app.config.html">app.config module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="app.game.html">app.game module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="app.players.html">app.players module</a></li>
@@ -100,6 +101,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="app.boards.html#app.boards.Board"><code class="docutils literal notranslate"><span class="pre">Board</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="app.boards.html#app.boards.Board.size"><code class="docutils literal notranslate"><span class="pre">Board.size</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="app.boards.html#app.boards.Board.player"><code class="docutils literal notranslate"><span class="pre">Board.player</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="app.boards.html#app.boards.Board.calculate_square_locations"><code class="docutils literal notranslate"><span class="pre">Board.calculate_square_locations()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="app.boards.html#app.boards.Board._get_ship_object"><code class="docutils literal notranslate"><span class="pre">Board._get_ship_object()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="app.boards.html#app.boards.Board.add_ship"><code class="docutils literal notranslate"><span class="pre">Board.add_ship()</span></code></a></li>
@@ -113,9 +115,13 @@
 <li class="toctree-l2"><a class="reference internal" href="app.boards.html#app.boards.PlayerBoard"><code class="docutils literal notranslate"><span class="pre">PlayerBoard</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="app.cli_config.html">app.cli_config module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="app.config.html">app.config module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="app.game.html">app.game module</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="app.game.html#app.game.Game"><code class="docutils literal notranslate"><span class="pre">Game</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="app.game.html#app.game.Game"><code class="docutils literal notranslate"><span class="pre">Game</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="app.game.html#app.game.Game.initialize_boards"><code class="docutils literal notranslate"><span class="pre">Game.initialize_boards()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="app.players.html">app.players module</a><ul>
@@ -123,13 +129,18 @@
 <li class="toctree-l2"><a class="reference internal" href="app.players.html#app.players.Player"><code class="docutils literal notranslate"><span class="pre">Player</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="app.players.html#app.players.Player.ships"><code class="docutils literal notranslate"><span class="pre">Player.ships</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="app.players.html#app.players.Player.name"><code class="docutils literal notranslate"><span class="pre">Player.name</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="app.players.html#app.players.Player.side"><code class="docutils literal notranslate"><span class="pre">Player.side</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="app.players.html#app.players.Player.board"><code class="docutils literal notranslate"><span class="pre">Player.board</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="app.players.html#app.players.Player.enemy_board"><code class="docutils literal notranslate"><span class="pre">Player.enemy_board</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="app.players.html#app.players.Player.fleet_strength"><code class="docutils literal notranslate"><span class="pre">Player.fleet_strength</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="app.players.html#app.players.Player.set_enemy"><code class="docutils literal notranslate"><span class="pre">Player.set_enemy()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="app.players.html#app.players.Player.initialize_board"><code class="docutils literal notranslate"><span class="pre">Player.initialize_board()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="app.players.html#app.players.AIPlayer"><code class="docutils literal notranslate"><span class="pre">AIPlayer</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="app.players.html#app.players.AIPlayer"><code class="docutils literal notranslate"><span class="pre">AIPlayer</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="app.players.html#app.players.AIPlayer.initialize_board"><code class="docutils literal notranslate"><span class="pre">AIPlayer.initialize_board()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="app.ships.html">app.ships module</a><ul>
@@ -145,6 +156,7 @@
 <li class="toctree-l3"><a class="reference internal" href="app.ships.html#app.ships.Ship.uuid"><code class="docutils literal notranslate"><span class="pre">Ship.uuid</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="app.ships.html#app.ships.Ship.location"><code class="docutils literal notranslate"><span class="pre">Ship.location</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="app.ships.html#app.ships.Ship.orientation"><code class="docutils literal notranslate"><span class="pre">Ship.orientation</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="app.ships.html#app.ships.Ship.under_edition"><code class="docutils literal notranslate"><span class="pre">Ship.under_edition</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="app.ships.html#app.ships.Ship.take_a_hit"><code class="docutils literal notranslate"><span class="pre">Ship.take_a_hit()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="app.ships.html#app.ships.Ship._abc_impl"><code class="docutils literal notranslate"><span class="pre">Ship._abc_impl</span></code></a></li>
 </ul>
@@ -173,6 +185,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="app.ui.html">app.ui module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="app.ui.html#app.ui.ShipPlacementAborted"><code class="docutils literal notranslate"><span class="pre">ShipPlacementAborted</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="app.ui.html#app.ui.Styles"><code class="docutils literal notranslate"><span class="pre">Styles</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="app.ui.html#app.ui.Styles.GRID"><code class="docutils literal notranslate"><span class="pre">Styles.GRID</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="app.ui.html#app.ui.Styles.SHIP"><code class="docutils literal notranslate"><span class="pre">Styles.SHIP</span></code></a></li>
@@ -182,8 +195,14 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="app.ui.html#app.ui.CLI"><code class="docutils literal notranslate"><span class="pre">CLI</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="app.ui.html#app.ui.CLI._calculate_edge_indexes"><code class="docutils literal notranslate"><span class="pre">CLI._calculate_edge_indexes()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="app.ui.html#app.ui.CLI._draw_ship"><code class="docutils literal notranslate"><span class="pre">CLI._draw_ship()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="app.ui.html#app.ui.CLI._next_orientation"><code class="docutils literal notranslate"><span class="pre">CLI._next_orientation()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="app.ui.html#app.ui.CLI._transform_location"><code class="docutils literal notranslate"><span class="pre">CLI._transform_location()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="app.ui.html#app.ui.CLI.show_board"><code class="docutils literal notranslate"><span class="pre">CLI.show_board()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="app.ui.html#app.ui.CLI.get_location"><code class="docutils literal notranslate"><span class="pre">CLI.get_location()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="app.ui.html#app.ui.CLI._show_remaining_fleet"><code class="docutils literal notranslate"><span class="pre">CLI._show_remaining_fleet()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="app.ui.html#app.ui.CLI.show_instructions"><code class="docutils literal notranslate"><span class="pre">CLI.show_instructions()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="app.ui.html#app.ui.CLI.get_move_ship_data"><code class="docutils literal notranslate"><span class="pre">CLI.get_move_ship_data()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="app.ui.html#app.ui.CLI.wrap"><code class="docutils literal notranslate"><span class="pre">CLI.wrap()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="app.ui.html#app.ui.CLI.close"><code class="docutils literal notranslate"><span class="pre">CLI.close()</span></code></a></li>

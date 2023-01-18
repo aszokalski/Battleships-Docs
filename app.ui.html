@@ -45,11 +45,13 @@
 <li class="toctree-l1 current"><a class="reference internal" href="app.html">app package</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="app.html#submodules">Submodules</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="app.boards.html">app.boards module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="app.cli_config.html">app.cli_config module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="app.config.html">app.config module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="app.game.html">app.game module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="app.players.html">app.players module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="app.ships.html">app.ships module</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">app.ui module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#app.ui.ShipPlacementAborted"><code class="docutils literal notranslate"><span class="pre">ShipPlacementAborted</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#app.ui.Styles"><code class="docutils literal notranslate"><span class="pre">Styles</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#app.ui.CLI"><code class="docutils literal notranslate"><span class="pre">CLI</span></code></a></li>
 </ul>
@@ -89,6 +91,12 @@
              
   <section id="module-app.ui">
 <span id="app-ui-module"></span><h1>app.ui module<a class="headerlink" href="#module-app.ui" title="Permalink to this heading"></a></h1>
+<dl class="py exception">
+<dt class="sig sig-object py" id="app.ui.ShipPlacementAborted">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ShipPlacementAborted</span></span><a class="headerlink" href="#app.ui.ShipPlacementAborted" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+</dd></dl>
+
 <dl class="py class">
 <dt class="sig sig-object py" id="app.ui.Styles">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Styles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">module</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qualname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundary</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.ui.Styles" title="Permalink to this definition"></a></dt>
@@ -96,7 +104,7 @@
 <p>Text styles for the CLI</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>IntEnum</strong> (<em>_type_</em>) – enum type</p>
+<dd class="field-odd"><p><strong>IntEnum</strong> – color number</p>
 </dd>
 </dl>
 <dl class="py attribute">
@@ -131,23 +139,109 @@
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">CLI</span></span><a class="headerlink" href="#app.ui.CLI" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <dl class="py method">
+<dt class="sig sig-object py" id="app.ui.CLI._calculate_edge_indexes">
+<span class="sig-name descname"><span class="pre">_calculate_edge_indexes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">current_orientation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'UP'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'DOWN'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'LEFT'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'RIGHT'</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">board_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ship_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span></span></span><a class="headerlink" href="#app.ui.CLI._calculate_edge_indexes" title="Permalink to this definition"></a></dt>
+<dd><p>A helper function to calculate the edge positions of the ship on the board</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>current_orientation</strong> (<em>Literal</em><em>[</em><em>&quot;UP&quot;</em><em>, </em><em>&quot;DOWN&quot;</em><em>, </em><em>&quot;LEFT&quot;</em><em>, </em><em>&quot;RIGHT&quot;</em><em>]</em>) – current orientation of the ship</p></li>
+<li><p><strong>board_size</strong> (<em>int</em>) – board size</p></li>
+<li><p><strong>ship_size</strong> (<em>int</em>) – ship size</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>(max_x, min_x, max_y, min_y)</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>tuple</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="app.ui.CLI._draw_ship">
+<span class="sig-name descname"><span class="pre">_draw_ship</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ship</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="app.ships.html#app.ships.Ship" title="app.ships.Ship"><span class="pre">Ship</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">board</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="app.boards.html#app.boards.Board" title="app.boards.Board"><span class="pre">Board</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">ship_square_locations</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">possible_location</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#app.ui.CLI._draw_ship" title="Permalink to this definition"></a></dt>
+<dd><p>Draws a ship on the board. It clolors the ship <code class="docutils literal notranslate"><span class="pre">config.colors.ErrorColor</span></code> if it’s not possible to place it there.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ship</strong> (<a class="reference internal" href="app.ships.html#app.ships.Ship" title="app.ships.Ship"><em>Ship</em></a>) – ship object</p></li>
+<li><p><strong>board</strong> (<a class="reference internal" href="app.boards.html#app.boards.Board" title="app.boards.Board"><em>Board</em></a>) – board object</p></li>
+<li><p><strong>ship_square_locations</strong> (<em>list</em>) – list of (x, y) locations of the ship</p></li>
+<li><p><strong>possible_location</strong> (<em>bool</em><em>, </em><em>optional</em>) – indicates if it’s possible to place</p></li>
+<li><p><strong>True.</strong> (<em>the ship in that location. Defaults to</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="app.ui.CLI._next_orientation">
+<span class="sig-name descname"><span class="pre">_next_orientation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">current_orientation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'UP'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'DOWN'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'LEFT'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'RIGHT'</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">location</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">board_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ship_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'UP'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'DOWN'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'LEFT'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'RIGHT'</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#app.ui.CLI._next_orientation" title="Permalink to this definition"></a></dt>
+<dd><p>Calculates the next (clockwise) orientation of the ship.
+If it is not possible to rotate the ship in a given location,
+it returns the current orientation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Ship orientation</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Literal[“UP”, “DOWN”, “LEFT”, “RIGHT”]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="app.ui.CLI._transform_location">
+<span class="sig-name descname"><span class="pre">_transform_location</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">location</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.ui.CLI._transform_location" title="Permalink to this definition"></a></dt>
+<dd><p>Transforms a given location based on the user input (key) and given boundaries.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>key</strong> (<em>int</em>) – user input key code</p></li>
+<li><p><strong>location</strong> (<em>tuple</em>) – (x, y)</p></li>
+<li><p><strong>max_x</strong> (<em>int</em>) – max x index</p></li>
+<li><p><strong>min_x</strong> (<em>int</em>) – min x index</p></li>
+<li><p><strong>max_y</strong> (<em>int</em>) – max y index</p></li>
+<li><p><strong>min_y</strong> (<em>int</em>) – min y index</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>_description_</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>_type_</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="app.ui.CLI.show_board">
 <span class="sig-name descname"><span class="pre">show_board</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">board</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="app.boards.html#app.boards.Board" title="app.boards.Board"><span class="pre">Board</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">hilight</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">None</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">tuple</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ommit_locations</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skip_refresh</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#app.ui.CLI.show_board" title="Permalink to this definition"></a></dt>
 <dd><p>Prints board to the console.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>board</strong> (<a class="reference internal" href="app.boards.html#app.boards.Board" title="app.boards.Board"><em>Board</em></a>) – board to print</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>board</strong> (<a class="reference internal" href="app.boards.html#app.boards.Board" title="app.boards.Board"><em>Board</em></a>) – The board to be printed</p></li>
+<li><p><strong>hilight</strong> (<em>None</em><em> | </em><em>tuple</em><em>, </em><em>optional</em>) – (x, y) location to be highlited. Defaults to None.</p></li>
+<li><p><strong>ommit_locations</strong> (<em>list</em><em> | </em><em>None</em><em>, </em><em>optional</em>) – list of (x, y) locations not to be shown. Defaults to None.</p></li>
+<li><p><strong>skip_refresh</strong> (<em>bool</em><em>, </em><em>optional</em>) – Decides of the function will skip the screen refresh. Defaults to False.</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="app.ui.CLI.get_location">
-<span class="sig-name descname"><span class="pre">get_location</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">board</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="app.boards.html#app.boards.Board" title="app.boards.Board"><span class="pre">Board</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span></span></span><a class="headerlink" href="#app.ui.CLI.get_location" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">get_location</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">board</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="app.boards.html#app.boards.Board" title="app.boards.Board"><span class="pre">Board</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">additional_board</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="app.boards.html#app.boards.Board" title="app.boards.Board"><span class="pre">boards.Board</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span></span></span><a class="headerlink" href="#app.ui.CLI.get_location" title="Permalink to this definition"></a></dt>
 <dd><p>Gets a location from the user</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>board</strong> (<a class="reference internal" href="app.boards.html#app.boards.Board" title="app.boards.Board"><em>Board</em></a>) – board to get the location from</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>board</strong> (<a class="reference internal" href="app.boards.html#app.boards.Board" title="app.boards.Board"><em>Board</em></a>) – board to get the location from</p></li>
+<li><p><strong>additional_board</strong> (<a class="reference internal" href="app.boards.html#app.boards.Board" title="app.boards.Board"><em>Board</em></a><em>, </em><em>optional</em>) – board to be shown but not to be interacted with. Defaults to None</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>(x, y) location</p>
@@ -159,6 +253,22 @@
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="app.ui.CLI._show_remaining_fleet">
+<span class="sig-name descname"><span class="pre">_show_remaining_fleet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">board</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="app.boards.html#app.boards.Board" title="app.boards.Board"><span class="pre">Board</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#app.ui.CLI._show_remaining_fleet" title="Permalink to this definition"></a></dt>
+<dd><p>Shows the remaining fleet during positioning</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>board</strong> (<a class="reference internal" href="app.boards.html#app.boards.Board" title="app.boards.Board"><em>Board</em></a>) – board on which the positioning occurs</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="app.ui.CLI.show_instructions">
+<span class="sig-name descname"><span class="pre">show_instructions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">instructions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.ui.CLI.show_instructions" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="app.ui.CLI.get_move_ship_data">
 <span class="sig-name descname"><span class="pre">get_move_ship_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ship</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="app.ships.html#app.ships.Ship" title="app.ships.Ship"><span class="pre">Ship</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">board</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="app.boards.html#app.boards.Board" title="app.boards.Board"><span class="pre">Board</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span></span></span><a class="headerlink" href="#app.ui.CLI.get_move_ship_data" title="Permalink to this definition"></a></dt>
 <dd><p>Gets the new position and orientation of a ship from user.
@@ -168,6 +278,7 @@ It ensures validity of the data.</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>ship</strong> (<a class="reference internal" href="app.ships.html#app.ships.Ship" title="app.ships.Ship"><em>Ship</em></a>) – ship to move</p></li>
 <li><p><strong>board</strong> (<a class="reference internal" href="app.boards.html#app.boards.Board" title="app.boards.Board"><em>Board</em></a>) – board to move the ship on</p></li>
+<li><p><strong>initial</strong> (<em>bool</em>) – if the ship is being placed for the first time</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>

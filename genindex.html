@@ -114,6 +114,8 @@
 </li>
       <li><a href="app.ui.html#app.ui.CLI._draw_ship">_draw_ship() (CLI method)</a>
 </li>
+      <li><a href="app.players.html#app.players.Player._edit_board">_edit_board() (Player method)</a>
+</li>
       <li><a href="app.boards.html#app.boards.Board._get_ship_object">_get_ship_object() (Board method)</a>
 </li>
       <li><a href="app.ui.html#app.ui.CLI._next_orientation">_next_orientation() (CLI method)</a>
@@ -128,6 +130,8 @@
 <h2 id="A">A</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="app.ui.html#app.ui.ActionAborted">ActionAborted</a>
+</li>
       <li><a href="app.boards.html#app.boards.Board.add_ship">add_ship() (Board method)</a>
 </li>
       <li><a href="app.players.html#app.players.AIPlayer">AIPlayer (class in app.players)</a>
@@ -162,8 +166,6 @@
         <li><a href="app.config.html#module-app.config">module</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     app.game
 
@@ -171,6 +173,8 @@
         <li><a href="app.game.html#module-app.game">module</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     app.players
 
@@ -201,6 +205,12 @@
       </ul></li>
       <li><a href="app.boards.html#app.boards.Board.attack">attack() (Board method)</a>
 </li>
+      <li><a href="app.players.html#app.players.AIPlayer.attack_enemy">attack_enemy() (AIPlayer method)</a>
+
+      <ul>
+        <li><a href="app.players.html#app.players.Player.attack_enemy">(Player method)</a>
+</li>
+      </ul></li>
       <li><a href="app.utils.html#app.utils.AttackResult">AttackResult (class in app.utils)</a>
 </li>
   </ul></td>
@@ -337,10 +347,12 @@
 <h2 id="L">L</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="app.ships.html#app.ships.Ship.location">location (Ship property)</a>
+      <li><a href="app.players.html#app.players.Player.last_attack_result">last_attack_result (Player property)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="app.ships.html#app.ships.Ship.location">location (Ship property)</a>
+</li>
       <li><a href="app.ships.html#app.ships.LocationOutsideOfRangeError">LocationOutsideOfRangeError</a>
 </li>
   </ul></td>
@@ -434,16 +446,16 @@
 </li>
       <li><a href="app.boards.html#app.boards.ShipDoesNotExistError">ShipDoesNotExistError</a>
 </li>
-      <li><a href="app.ui.html#app.ui.ShipPlacementAborted">ShipPlacementAborted</a>
-</li>
       <li><a href="app.players.html#app.players.Player.ships">ships (Player property)</a>
 </li>
       <li><a href="app.ui.html#app.ui.CLI.show_board">show_board() (CLI method)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="app.ui.html#app.ui.CLI.show_instructions">show_instructions() (CLI method)</a>
 </li>
+      <li><a href="app.ui.html#app.ui.CLI.show_menu">show_menu() (CLI method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="app.players.html#app.players.Player.side">side (Player property)</a>
 </li>
       <li><a href="app.boards.html#app.boards.Board.size">size (Board property)</a>
@@ -454,6 +466,8 @@
       </ul></li>
       <li><a href="app.ships.html#app.ships.Ship.squares">squares (Ship property)</a>
 </li>
+      <li><a href="app.game.html#app.game.Game.start">start() (Game method)</a>
+</li>
       <li><a href="app.ships.html#app.ships.Ship.strength">strength (Ship property)</a>
 </li>
       <li><a href="app.ui.html#app.ui.Styles">Styles (class in app.ui)</a>
@@ -461,7 +475,11 @@
       <li><a href="app.ships.html#app.ships.Submarine">Submarine (class in app.ships)</a>
 </li>
       <li><a href="app.utils.html#app.utils.AttackResult.SUNK">SUNK (AttackResult attribute)</a>
+
+      <ul>
+        <li><a href="app.ui.html#app.ui.Styles.SUNK">(Styles attribute)</a>
 </li>
+      </ul></li>
   </ul></td>
 </tr></table>
 

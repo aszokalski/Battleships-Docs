@@ -103,7 +103,7 @@
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <dl class="py property">
 <dt class="sig sig-object py" id="app.players.Player.ships">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ships</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span></em><a class="headerlink" href="#app.players.Player.ships" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ships</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="app.ships.html#app.ships.Ship" title="app.ships.Ship"><span class="pre">ships.Ship</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#app.players.Player.ships" title="Permalink to this definition"></a></dt>
 <dd><p>Returns the player’s ships</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -175,6 +175,20 @@
 </dd></dl>
 
 <dl class="py property">
+<dt class="sig sig-object py" id="app.players.Player.last_attack_result">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">last_attack_result</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="app.utils.html#app.utils.AttackResult" title="app.utils.AttackResult"><span class="pre">AttackResult</span></a></em><a class="headerlink" href="#app.players.Player.last_attack_result" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the last attack result</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>last attack result enum</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="app.utils.html#app.utils.AttackResult" title="app.utils.AttackResult">AttackResult</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
 <dt class="sig sig-object py" id="app.players.Player.fleet_strength">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">fleet_strength</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#app.players.Player.fleet_strength" title="Permalink to this definition"></a></dt>
 <dd><p>Returns the player’s fleet strength (sum of all ships’ sizes)</p>
@@ -200,9 +214,35 @@
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="app.players.Player._edit_board">
+<span class="sig-name descname"><span class="pre">_edit_board</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app.players.Player._edit_board" title="Permalink to this definition"></a></dt>
+<dd><p>Edits the board using the user input.
+First the user selects a ship,
+then the ship is moved to the desired location.</p>
+<p>If the user aborts the ship placement,
+the ship is not moved.</p>
+<p>If the user selects a cell that is not a ship,
+the user is asked to select a ship again.</p>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="app.players.Player.initialize_board">
 <span class="sig-name descname"><span class="pre">initialize_board</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#app.players.Player.initialize_board" title="Permalink to this definition"></a></dt>
-<dd><p>Initializes the board according to the user input</p>
+<dd><p>Initializes the board using the user input</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="app.players.Player.attack_enemy">
+<span class="sig-name descname"><span class="pre">attack_enemy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="app.utils.html#app.utils.AttackResult" title="app.utils.AttackResult"><span class="pre">AttackResult</span></a></span></span><a class="headerlink" href="#app.players.Player.attack_enemy" title="Permalink to this definition"></a></dt>
+<dd><p>Attacks the enemy using the user input</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>result of the attack</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="app.utils.html#app.utils.AttackResult" title="app.utils.AttackResult">AttackResult</a></p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -215,6 +255,20 @@
 <dt class="sig sig-object py" id="app.players.AIPlayer.initialize_board">
 <span class="sig-name descname"><span class="pre">initialize_board</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#app.players.AIPlayer.initialize_board" title="Permalink to this definition"></a></dt>
 <dd><p>Initializes the board with random ship placement</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="app.players.AIPlayer.attack_enemy">
+<span class="sig-name descname"><span class="pre">attack_enemy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="app.utils.html#app.utils.AttackResult" title="app.utils.AttackResult"><span class="pre">AttackResult</span></a></span></span><a class="headerlink" href="#app.players.AIPlayer.attack_enemy" title="Permalink to this definition"></a></dt>
+<dd><p>Attacks the enemy using most probable coordinates</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>result of the attack</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="app.utils.html#app.utils.AttackResult" title="app.utils.AttackResult">AttackResult</a></p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>

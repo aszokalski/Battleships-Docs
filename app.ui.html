@@ -51,7 +51,7 @@
 <li class="toctree-l3"><a class="reference internal" href="app.players.html">app.players module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="app.ships.html">app.ships module</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">app.ui module</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#app.ui.ShipPlacementAborted"><code class="docutils literal notranslate"><span class="pre">ShipPlacementAborted</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#app.ui.ActionAborted"><code class="docutils literal notranslate"><span class="pre">ActionAborted</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#app.ui.Styles"><code class="docutils literal notranslate"><span class="pre">Styles</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#app.ui.CLI"><code class="docutils literal notranslate"><span class="pre">CLI</span></code></a></li>
 </ul>
@@ -92,8 +92,8 @@
   <section id="module-app.ui">
 <span id="app-ui-module"></span><h1>app.ui module<a class="headerlink" href="#module-app.ui" title="Permalink to this heading"></a></h1>
 <dl class="py exception">
-<dt class="sig sig-object py" id="app.ui.ShipPlacementAborted">
-<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ShipPlacementAborted</span></span><a class="headerlink" href="#app.ui.ShipPlacementAborted" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="app.ui.ActionAborted">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ActionAborted</span></span><a class="headerlink" href="#app.ui.ActionAborted" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
 </dd></dl>
 
@@ -132,6 +132,11 @@
 <span class="sig-name descname"><span class="pre">ERROR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">5</span></em><a class="headerlink" href="#app.ui.Styles.ERROR" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.ui.Styles.SUNK">
+<span class="sig-name descname"><span class="pre">SUNK</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">6</span></em><a class="headerlink" href="#app.ui.Styles.SUNK" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
 </dd></dl>
 
 <dl class="py class">
@@ -162,7 +167,8 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="app.ui.CLI._draw_ship">
 <span class="sig-name descname"><span class="pre">_draw_ship</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ship</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="app.ships.html#app.ships.Ship" title="app.ships.Ship"><span class="pre">Ship</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">board</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="app.boards.html#app.boards.Board" title="app.boards.Board"><span class="pre">Board</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">ship_square_locations</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">possible_location</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#app.ui.CLI._draw_ship" title="Permalink to this definition"></a></dt>
-<dd><p>Draws a ship on the board. It clolors the ship <code class="docutils literal notranslate"><span class="pre">cli_config.colors[&quot;error&quot;]</span></code> if it’s not possible to place it there.</p>
+<dd><p>Draws a ship on the board. It clolors the ship <code class="docutils literal notranslate"><span class="pre">cli_config.colors[&quot;error&quot;]</span></code>
+if it’s not possible to place it there.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -208,7 +214,7 @@ it returns the current orientation.</p>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>(x, y)</p>
+<dd class="field-even"><p>(x, y) location</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>tuple</p>
@@ -218,7 +224,7 @@ it returns the current orientation.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="app.ui.CLI.show_board">
-<span class="sig-name descname"><span class="pre">show_board</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">board</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="app.boards.html#app.boards.Board" title="app.boards.Board"><span class="pre">Board</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">hilight</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">None</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">tuple</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ommit_locations</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skip_refresh</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#app.ui.CLI.show_board" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">show_board</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">board</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="app.boards.html#app.boards.Board" title="app.boards.Board"><span class="pre">Board</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">hilight</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">None</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">tuple</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ommit_locations</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skip_refresh</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_hits_only</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#app.ui.CLI.show_board" title="Permalink to this definition"></a></dt>
 <dd><p>Prints board to the console.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -227,6 +233,7 @@ it returns the current orientation.</p>
 <li><p><strong>hilight</strong> (<em>None</em><em> | </em><em>tuple</em><em>, </em><em>optional</em>) – (x, y) location to be highlited. Defaults to None.</p></li>
 <li><p><strong>ommit_locations</strong> (<em>list</em><em> | </em><em>None</em><em>, </em><em>optional</em>) – list of (x, y) locations not to be shown. Defaults to None.</p></li>
 <li><p><strong>skip_refresh</strong> (<em>bool</em><em>, </em><em>optional</em>) – Decides of the function will skip the screen refresh. Defaults to False.</p></li>
+<li><p><strong>show_hits_only</strong> (<em>bool</em><em>, </em><em>optional</em>) – Decides if only hits will be shown. Defaults to False.</p></li>
 </ul>
 </dd>
 </dl>
@@ -234,13 +241,16 @@ it returns the current orientation.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="app.ui.CLI.get_location">
-<span class="sig-name descname"><span class="pre">get_location</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">board</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="app.boards.html#app.boards.Board" title="app.boards.Board"><span class="pre">Board</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">additional_board</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="app.boards.html#app.boards.Board" title="app.boards.Board"><span class="pre">boards.Board</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span></span></span><a class="headerlink" href="#app.ui.CLI.get_location" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">get_location</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">board</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="app.boards.html#app.boards.Board" title="app.boards.Board"><span class="pre">Board</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">additional_board</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="app.boards.html#app.boards.Board" title="app.boards.Board"><span class="pre">boards.Board</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_hits_only</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instructions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">abortable</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span></span></span><a class="headerlink" href="#app.ui.CLI.get_location" title="Permalink to this definition"></a></dt>
 <dd><p>Gets a location from the user</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>board</strong> (<a class="reference internal" href="app.boards.html#app.boards.Board" title="app.boards.Board"><em>Board</em></a>) – board to get the location from</p></li>
 <li><p><strong>additional_board</strong> (<a class="reference internal" href="app.boards.html#app.boards.Board" title="app.boards.Board"><em>Board</em></a><em>, </em><em>optional</em>) – board to be shown but not to be interacted with. Defaults to None</p></li>
+<li><p><strong>show_hits_only</strong> (<em>bool</em><em>, </em><em>optional</em>) – Decides if only hits will be shown on the <code class="docutils literal notranslate"><span class="pre">board</span></code>. Defaults to False.</p></li>
+<li><p><strong>instructions</strong> (<em>dict</em><em> | </em><em>None</em><em>, </em><em>optional</em>) – Instructions from <code class="docutils literal notranslate"><span class="pre">cli_config.instructions</span></code> to be shown to the user. Defaults to None.</p></li>
+<li><p><strong>abortable</strong> (<em>bool</em><em>, </em><em>optional</em>) – Decides if the user can abort the action. Defaults to False.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -248,6 +258,9 @@ it returns the current orientation.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>tuple</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><a class="reference internal" href="#app.ui.ActionAborted" title="app.ui.ActionAborted"><strong>ActionAborted</strong></a> – If the user aborts the action</p>
 </dd>
 </dl>
 </dd></dl>
@@ -265,12 +278,17 @@ it returns the current orientation.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="app.ui.CLI.show_instructions">
-<span class="sig-name descname"><span class="pre">show_instructions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">instructions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.ui.CLI.show_instructions" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">show_instructions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#app.ui.CLI.show_instructions" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="app.ui.CLI.show_menu">
+<span class="sig-name descname"><span class="pre">show_menu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">board</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="app.boards.html#app.boards.Board" title="app.boards.Board"><span class="pre">boards.Board</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#app.ui.CLI.show_menu" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="app.ui.CLI.get_move_ship_data">
-<span class="sig-name descname"><span class="pre">get_move_ship_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ship</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="app.ships.html#app.ships.Ship" title="app.ships.Ship"><span class="pre">Ship</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">board</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="app.boards.html#app.boards.Board" title="app.boards.Board"><span class="pre">Board</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span></span></span><a class="headerlink" href="#app.ui.CLI.get_move_ship_data" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">get_move_ship_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ship</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="app.ships.html#app.ships.Ship" title="app.ships.Ship"><span class="pre">Ship</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">board</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="app.boards.html#app.boards.Board" title="app.boards.Board"><span class="pre">Board</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">randomizable</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="headerlink" href="#app.ui.CLI.get_move_ship_data" title="Permalink to this definition"></a></dt>
 <dd><p>Gets the new position and orientation of a ship from user.
 It ensures validity of the data.</p>
 <dl class="field-list simple">
@@ -278,14 +296,17 @@ It ensures validity of the data.</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>ship</strong> (<a class="reference internal" href="app.ships.html#app.ships.Ship" title="app.ships.Ship"><em>Ship</em></a>) – ship to move</p></li>
 <li><p><strong>board</strong> (<a class="reference internal" href="app.boards.html#app.boards.Board" title="app.boards.Board"><em>Board</em></a>) – board to move the ship on</p></li>
-<li><p><strong>initial</strong> (<em>bool</em>) – if the ship is being placed for the first time</p></li>
+<li><p><strong>randomizable</strong> (<em>bool</em><em>, </em><em>Optional</em>) – Decides if the user can randomize the ship placement. Defaults to False.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>(x, y, orientation)</p>
+<dd class="field-even"><p>(x, y, orientation). If None, the user decided to randomize the ship placement</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>tuple</p>
+<dd class="field-odd"><p>tuple | None</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><a class="reference internal" href="#app.ui.ActionAborted" title="app.ui.ActionAborted"><strong>ActionAborted</strong></a> – if the user aborts the ship placement</p>
 </dd>
 </dl>
 </dd></dl>

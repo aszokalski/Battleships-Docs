@@ -165,6 +165,17 @@
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="app.ui.CLI._show_remaining_fleet">
+<span class="sig-name descname"><span class="pre">_show_remaining_fleet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">board</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="app.boards.html#app.boards.Board" title="app.boards.Board"><span class="pre">Board</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#app.ui.CLI._show_remaining_fleet" title="Permalink to this definition"></a></dt>
+<dd><p>Shows the remaining fleet during positioning</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>board</strong> (<a class="reference internal" href="app.boards.html#app.boards.Board" title="app.boards.Board"><em>Board</em></a>) – board on which the positioning occurs</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="app.ui.CLI._draw_ship">
 <span class="sig-name descname"><span class="pre">_draw_ship</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ship</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="app.ships.html#app.ships.Ship" title="app.ships.Ship"><span class="pre">Ship</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">board</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="app.boards.html#app.boards.Board" title="app.boards.Board"><span class="pre">Board</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">ship_square_locations</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">possible_location</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#app.ui.CLI._draw_ship" title="Permalink to this definition"></a></dt>
 <dd><p>Draws a ship on the board. It clolors the ship <code class="docutils literal notranslate"><span class="pre">cli_config.colors[&quot;error&quot;]</span></code>
@@ -266,25 +277,30 @@ it returns the current orientation.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="app.ui.CLI._show_remaining_fleet">
-<span class="sig-name descname"><span class="pre">_show_remaining_fleet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">board</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="app.boards.html#app.boards.Board" title="app.boards.Board"><span class="pre">Board</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#app.ui.CLI._show_remaining_fleet" title="Permalink to this definition"></a></dt>
-<dd><p>Shows the remaining fleet during positioning</p>
+<dt class="sig sig-object py" id="app.ui.CLI.show_instructions">
+<span class="sig-name descname"><span class="pre">show_instructions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#app.ui.CLI.show_instructions" title="Permalink to this definition"></a></dt>
+<dd><p>Shows given instructions on the screen</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>board</strong> (<a class="reference internal" href="app.boards.html#app.boards.Board" title="app.boards.Board"><em>Board</em></a>) – board on which the positioning occurs</p>
+<dd class="field-odd"><p><strong>data</strong> (<em>dict</em>) – data from <code class="docutils literal notranslate"><span class="pre">cli_config.instructions</span></code> to be shown</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="app.ui.CLI.show_instructions">
-<span class="sig-name descname"><span class="pre">show_instructions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#app.ui.CLI.show_instructions" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
 <dt class="sig sig-object py" id="app.ui.CLI.show_menu">
 <span class="sig-name descname"><span class="pre">show_menu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">board</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="app.boards.html#app.boards.Board" title="app.boards.Board"><span class="pre">boards.Board</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#app.ui.CLI.show_menu" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Shows a menu on the screen</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>title</strong> (<em>str</em>) – title of the menu</p></li>
+<li><p><strong>options</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>Callable</em><em>]</em>) – option_name -&gt; function dictionary</p></li>
+<li><p><strong>board</strong> (<a class="reference internal" href="app.boards.html#app.boards.Board" title="app.boards.Board"><em>Board</em></a><em> | </em><em>None</em><em>, </em><em>optional</em>) – Board to show. Defaults to None.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="app.ui.CLI.get_move_ship_data">

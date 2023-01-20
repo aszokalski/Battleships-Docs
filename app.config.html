@@ -46,7 +46,10 @@
 <li class="toctree-l2 current"><a class="reference internal" href="app.html#submodules">Submodules</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="app.boards.html">app.boards module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="app.cli_config.html">app.cli_config module</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">app.config module</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">app.config module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#app.config.Config"><code class="docutils literal notranslate"><span class="pre">Config</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="app.game.html">app.game module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="app.players.html">app.players module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="app.ships.html">app.ships module</a></li>
@@ -84,8 +87,56 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="app-config-module">
-<h1>app.config module<a class="headerlink" href="#app-config-module" title="Permalink to this heading"></a></h1>
+  <section id="module-app.config">
+<span id="app-config-module"></span><h1>app.config module<a class="headerlink" href="#module-app.config" title="Permalink to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="app.config.Config">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Config</span></span><a class="headerlink" href="#app.config.Config" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="app.config.Config._load">
+<span class="sig-name descname"><span class="pre">_load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">TextIOWrapper</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isUserConfig</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.config.Config._load" title="Permalink to this definition"></a></dt>
+<dd><p>loads the config from a file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>file</strong> (<em>TextIOWrapper</em>) – file to load from</p></li>
+<li><p><strong>isUserConfig</strong> (<em>bool</em><em>, </em><em>optional</em>) – indicates if it’s a user made config. Defaults to False.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="app.config.Config.save">
+<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app.config.Config.save" title="Permalink to this definition"></a></dt>
+<dd><p>Saves the config to <code class="docutils literal notranslate"><span class="pre">`user_config.json</span></code></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="app.config.Config._check_data">
+<span class="sig-name descname"><span class="pre">_check_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.config.Config._check_data" title="Permalink to this definition"></a></dt>
+<dd><p>Checks if the data in the config is valid</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>config</strong> (<em>dict</em>) – config data</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="app.config.Config.restore_defaults">
+<span class="sig-name descname"><span class="pre">restore_defaults</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app.config.Config.restore_defaults" title="Permalink to this definition"></a></dt>
+<dd><p>Restores the config to the default values</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><strong>FileNotFoundError</strong> – if the default config file is not found</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 </section>
 
 

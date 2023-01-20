@@ -44,7 +44,16 @@
 <li class="toctree-l1"><a class="reference internal" href="README.html">Quickstart</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="app.html">app package</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="app.html#submodules">Submodules</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">app.boards module</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">app.boards module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#app.boards.DoubleDestructionError"><code class="docutils literal notranslate"><span class="pre">DoubleDestructionError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#app.boards.CellAlreadyOccupiedError"><code class="docutils literal notranslate"><span class="pre">CellAlreadyOccupiedError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#app.boards.ShipDoesNotExistError"><code class="docutils literal notranslate"><span class="pre">ShipDoesNotExistError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#app.boards.UnlocatedShipRemovalError"><code class="docutils literal notranslate"><span class="pre">UnlocatedShipRemovalError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#app.boards.Cell"><code class="docutils literal notranslate"><span class="pre">Cell</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#app.boards.Board"><code class="docutils literal notranslate"><span class="pre">Board</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#app.boards.PlayerBoard"><code class="docutils literal notranslate"><span class="pre">PlayerBoard</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="app.cli_config.html">app.cli_config module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="app.config.html">app.config module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="app.game.html">app.game module</a></li>
@@ -54,7 +63,7 @@
 <li class="toctree-l3"><a class="reference internal" href="app.utils.html">app.utils module</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="app.html#module-contents">Module contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="app.html#module-app">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -84,8 +93,270 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="app-boards-module">
-<h1>app.boards module<a class="headerlink" href="#app-boards-module" title="Permalink to this heading"></a></h1>
+  <section id="module-app.boards">
+<span id="app-boards-module"></span><h1>app.boards module<a class="headerlink" href="#module-app.boards" title="Permalink to this heading"></a></h1>
+<dl class="py exception">
+<dt class="sig sig-object py" id="app.boards.DoubleDestructionError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoubleDestructionError</span></span><a class="headerlink" href="#app.boards.DoubleDestructionError" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">IndexError</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="app.boards.CellAlreadyOccupiedError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">CellAlreadyOccupiedError</span></span><a class="headerlink" href="#app.boards.CellAlreadyOccupiedError" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">IndexError</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="app.boards.ShipDoesNotExistError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ShipDoesNotExistError</span></span><a class="headerlink" href="#app.boards.ShipDoesNotExistError" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">KeyError</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="app.boards.UnlocatedShipRemovalError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">UnlocatedShipRemovalError</span></span><a class="headerlink" href="#app.boards.UnlocatedShipRemovalError" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">IndexError</span></code></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="app.boards.Cell">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Cell</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shipUUID</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">squareIndex</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alive</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.boards.Cell" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py property">
+<dt class="sig sig-object py" id="app.boards.Cell.alive">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">alive</span></span><a class="headerlink" href="#app.boards.Cell.alive" title="Permalink to this definition"></a></dt>
+<dd><p>Defines wether the square has not been destroyed yet</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="app.boards.Cell.destroy">
+<span class="sig-name descname"><span class="pre">destroy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app.boards.Cell.destroy" title="Permalink to this definition"></a></dt>
+<dd><p>Destroys the cell</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#app.boards.DoubleDestructionError" title="app.boards.DoubleDestructionError"><strong>DoubleDestructionError</strong></a> – if the cell has already been destroyed</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="app.boards.Board">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Board</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">player</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="app.players.html#app.players.Player" title="app.players.Player"><span class="pre">Player</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.boards.Board" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py property">
+<dt class="sig sig-object py" id="app.boards.Board.size">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">size</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#app.boards.Board.size" title="Permalink to this definition"></a></dt>
+<dd><p>Board size</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>board size</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="app.boards.Board.player">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">player</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="app.players.html#app.players.Player" title="app.players.Player"><span class="pre">Player</span></a></em><a class="headerlink" href="#app.boards.Board.player" title="Permalink to this definition"></a></dt>
+<dd><p>Player who owns the board</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>player object</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="app.players.html#app.players.Player" title="app.players.Player">Player</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="app.boards.Board.calculate_square_locations">
+<span class="sig-name descname"><span class="pre">calculate_square_locations</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start_location</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orientation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'UP'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'DOWN'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'LEFT'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'RIGHT'</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#app.boards.Board.calculate_square_locations" title="Permalink to this definition"></a></dt>
+<dd><p>Calculates the locations of the squares of a ship</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>start_location</strong> (<em>tuple</em>) – location of the first square of the ship</p></li>
+<li><p><strong>orientation</strong> (<em>Literal</em><em>[</em><em>&quot;UP&quot;</em><em>, </em><em>&quot;DOWN&quot;</em><em>, </em><em>&quot;LEFT&quot;</em><em>, </em><em>&quot;RIGHT&quot;</em><em>]</em>) – orientation of the ship</p></li>
+<li><p><strong>size</strong> (<em>int</em>) – size of the ship</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><a class="reference internal" href="app.ships.html#app.ships.LocationOutsideOfRangeError" title="app.ships.LocationOutsideOfRangeError"><strong>LocationOutsideOfRangeError</strong></a> – if the ship would not fit on the board</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>tuple[0]: list of the locations of the squares of the ship,
+tuple[1]: list of the locations of the squares surrounding the ship</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>tuple[list, list]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="app.boards.Board._get_ship_object">
+<span class="sig-name descname"><span class="pre">_get_ship_object</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shipUUID</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="app.ships.html#app.ships.Ship" title="app.ships.Ship"><span class="pre">Ship</span></a></span></span><a class="headerlink" href="#app.boards.Board._get_ship_object" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the ship object associated with the given uuid</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>shipUUID</strong> (<em>int</em>) – uuid of the ship</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><a class="reference internal" href="#app.boards.ShipDoesNotExistError" title="app.boards.ShipDoesNotExistError"><strong>ShipDoesNotExistError</strong></a> – if the ship does not exist</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>ship object</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="app.ships.html#app.ships.Ship" title="app.ships.Ship">Ship</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="app.boards.Board.add_ship">
+<span class="sig-name descname"><span class="pre">add_ship</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shipUUID</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">location</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orientation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'UP'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'DOWN'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'LEFT'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'RIGHT'</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#app.boards.Board.add_ship" title="Permalink to this definition"></a></dt>
+<dd><p>Adds a ship to the board</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>shipUUID</strong> (<em>int</em>) – uuid of the ship to add</p></li>
+<li><p><strong>location</strong> (<em>tuple</em>) – location of the first square of the ship</p></li>
+<li><p><strong>orientation</strong> (<em>Literal</em><em>[</em><em>&quot;UP&quot;</em><em>, </em><em>&quot;DOWN&quot;</em><em>, </em><em>&quot;LEFT&quot;</em><em>, </em><em>&quot;RIGHT&quot;</em><em>]</em>) – orientation of the ship</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="#app.boards.CellAlreadyOccupiedError" title="app.boards.CellAlreadyOccupiedError"><strong>CellAlreadyOccupiedError</strong></a> – if the ship would overlap with or be to close to another ship</p></li>
+<li><p><strong>LocationOutsideOfRange</strong> – if the ship would not fit on the board</p></li>
+<li><p><a class="reference internal" href="#app.boards.ShipDoesNotExistError" title="app.boards.ShipDoesNotExistError"><strong>ShipDoesNotExistError</strong></a> – if the ship does not exist</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="app.boards.Board.remove_ship">
+<span class="sig-name descname"><span class="pre">remove_ship</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shipUUID</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#app.boards.Board.remove_ship" title="Permalink to this definition"></a></dt>
+<dd><p>Removes a ship from the board</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>shipUUID</strong> (<em>int</em>) – uuid of the ship to remove</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>InvalidShipPlacementError</strong> – given ship is incorrectly placed</p></li>
+<li><p><a class="reference internal" href="#app.boards.ShipDoesNotExistError" title="app.boards.ShipDoesNotExistError"><strong>ShipDoesNotExistError</strong></a> – if the ship does not exist</p></li>
+<li><p><a class="reference internal" href="#app.boards.UnlocatedShipRemovalError" title="app.boards.UnlocatedShipRemovalError"><strong>UnlocatedShipRemovalError</strong></a> – if the ship is not located</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="app.boards.Board.move_ship">
+<span class="sig-name descname"><span class="pre">move_ship</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shipUUID</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">location</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orientation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'UP'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'DOWN'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'LEFT'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'RIGHT'</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#app.boards.Board.move_ship" title="Permalink to this definition"></a></dt>
+<dd><p>Moves a ship to a new location. If the ship is not located it works like <code class="docutils literal notranslate"><span class="pre">self.add_ship</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>shipUUID</strong> (<em>int</em>) – uuid of the ship to move</p></li>
+<li><p><strong>location</strong> (<em>tuple</em>) – new location of the ship</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="#app.boards.CellAlreadyOccupiedError" title="app.boards.CellAlreadyOccupiedError"><strong>CellAlreadyOccupiedError</strong></a> – if the ship would overlap with another ship</p></li>
+<li><p><strong>InvalidShipPlacementError</strong> – if the ship location is not valid (it doesn’t fit on the board)</p></li>
+<li><p><a class="reference internal" href="#app.boards.ShipDoesNotExistError" title="app.boards.ShipDoesNotExistError"><strong>ShipDoesNotExistError</strong></a> – if the ship does not exist</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="app.boards.Board.cell">
+<span class="sig-name descname"><span class="pre">cell</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#app.boards.Cell" title="app.boards.Cell"><span class="pre">app.boards.Cell</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="headerlink" href="#app.boards.Board.cell" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the cell at the given coordinates. If there is no cell it returns <code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>int</em>) – coordinate x</p></li>
+<li><p><strong>y</strong> (<em>int</em>) – coordinate y</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>IndexError</strong> – if the coordinates are out of range</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>value at the given coordinates</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#app.boards.Cell" title="app.boards.Cell">Cell</a> | None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="app.boards.Board.get_possible_locations">
+<span class="sig-name descname"><span class="pre">get_possible_locations</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orientation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'UP'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'DOWN'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'LEFT'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'RIGHT'</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#app.boards.Board.get_possible_locations" title="Permalink to this definition"></a></dt>
+<dd><p>Returns a list of possible locations for a ship of the given size and orientation</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>size</strong> (<em>int</em>) – size of the ship</p></li>
+<li><p><strong>orientation</strong> (<em>Literal</em><em>[</em><em>&quot;UP&quot;</em><em>, </em><em>&quot;DOWN&quot;</em><em>, </em><em>&quot;LEFT&quot;</em><em>, </em><em>&quot;RIGHT&quot;</em><em>]</em>) – orientation of the ship</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>list of (x, y) tuples</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="app.boards.Board.attack">
+<span class="sig-name descname"><span class="pre">attack</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="app.utils.html#app.utils.AttackResult" title="app.utils.AttackResult"><span class="pre">AttackResult</span></a></span></span><a class="headerlink" href="#app.boards.Board.attack" title="Permalink to this definition"></a></dt>
+<dd><p>Attacks the given location and returns <code class="docutils literal notranslate"><span class="pre">AttackResult</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>int</em>) – x coordinate</p></li>
+<li><p><strong>y</strong> (<em>int</em>) – y coordinate</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="app.ships.html#app.ships.HitDestroyedSquareError" title="app.ships.HitDestroyedSquareError"><strong>HitDestroyedSquareError</strong></a> – if the cell has already been hit</p></li>
+<li><p><a class="reference internal" href="app.ships.html#app.ships.LocationOutsideOfRangeError" title="app.ships.LocationOutsideOfRangeError"><strong>LocationOutsideOfRangeError</strong></a> – if the coordinates are not on the board</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>result of the attack</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="app.utils.html#app.utils.AttackResult" title="app.utils.AttackResult">AttackResult</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="app.boards.PlayerBoard">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">PlayerBoard</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">player</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="app.players.html#app.players.Player" title="app.players.Player"><span class="pre">Player</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.boards.PlayerBoard" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#app.boards.Board" title="app.boards.Board"><code class="xref py py-class docutils literal notranslate"><span class="pre">Board</span></code></a></p>
+</dd></dl>
+
 </section>
 
 

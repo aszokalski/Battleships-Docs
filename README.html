@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Quickstart &mdash; Battleships 0.0.1 documentation</title>
+  <title>Wstęp &mdash; Battleships 0.0.1 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -41,13 +41,29 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Quickstart</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#documentation">Documentation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#requirements">Requirements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#setup">Setup</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#building-the-docs-locally">Building the docs locally</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#configuration">Configuration</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Wstęp</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#dokumentacja">Dokumentacja</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#wymagania">Wymagania</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#automatyczne-budowanie-dokumentacji">Automatyczne budowanie dokumentacji</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#testy">Testy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dzialanie">Działanie</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#wlaczenie-gry">Włączenie gry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ekran-glowny">Ekran główny</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#przygotowanie-planszy">Przygotowanie planszy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#walka-z-komputerem">Walka z komputerem</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#krotki-opis-algorytmu">Krótki opis algorytmu</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#walka-z-innym-graczem">Walka z innym graczem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#zakonczenie-walki">Zakończenie walki</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ustawienia">Ustawienia</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#ui">UI</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#modyfikacja-cli">Modyfikacja CLI</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#uwagi">Uwagi</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="app.html">app package</a></li>
@@ -67,7 +83,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home"></a></li>
-      <li class="breadcrumb-item active">Quickstart</li>
+      <li class="breadcrumb-item active">Wstęp</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/README.md.txt" rel="nofollow"> View page source</a>
       </li>
@@ -78,51 +94,147 @@
            <div itemprop="articleBody">
              
   <p><img alt="Python" src="https://img.shields.io/badge/python-v3.11+-blue.svg" /></p>
-<section id="quickstart">
-<h1>Quickstart<a class="headerlink" href="#quickstart" title="Permalink to this heading"></a></h1>
-<section id="documentation">
-<h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this heading"></a></h2>
-<p>The documentation is hosted on Github Pages: <a class="reference external" href="https://aszokalski.github.io/Battleships-Docs/">documentation</a></p>
+<section id="wstep">
+<h1>Wstęp<a class="headerlink" href="#wstep" title="Permalink to this heading"></a></h1>
+<p>Battleships to implementacja popularnej gry w statki, która pozwala użtkownikowi zagrać przeciwko komputerowi</p>
+<section id="dokumentacja">
+<h2>Dokumentacja<a class="headerlink" href="#dokumentacja" title="Permalink to this heading"></a></h2>
+<p>Szczegółowa dokumentacja kodu znajduje się na Github Pages: <a class="reference external" href="https://aszokalski.github.io/Battleships-Docs/">link</a></p>
 </section>
-<section id="requirements">
-<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this heading"></a></h2>
+<section id="wymagania">
+<h2>Wymagania<a class="headerlink" href="#wymagania" title="Permalink to this heading"></a></h2>
 <ul class="simple">
-<li><p>Python <code class="docutils literal notranslate"><span class="pre">3.11</span></code> or newer</p></li>
-</ul>
-</section>
-<section id="setup">
-<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this heading"></a></h2>
-<ul class="simple">
-<li><p>Install the dependencies</p></li>
+<li><p>Python <code class="docutils literal notranslate"><span class="pre">3.11</span></code> lub nowszy</p></li>
+<li><p>Zainsalowanie wymaganych bibliotek</p></li>
 </ul>
 <div class="highlight-Sh notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
 </pre></div>
 </div>
 </section>
-<section id="building-the-docs-locally">
-<h2>Building the docs locally<a class="headerlink" href="#building-the-docs-locally" title="Permalink to this heading"></a></h2>
+<section id="automatyczne-budowanie-dokumentacji">
+<h2>Automatyczne budowanie dokumentacji<a class="headerlink" href="#automatyczne-budowanie-dokumentacji" title="Permalink to this heading"></a></h2>
+<p>Projekt ten umożliwia automatyczne budowanie dokumentacji bezpośrednio z docstringów za pomocą programu <a class="reference external" href="https://www.sphinx-doc.org">Sphinx</a>. Napisałem skrypt, który dodatkowo ułatwia ten proces</p>
 <ul class="simple">
-<li><p>Build the docs</p></li>
+<li><p>Zbuduj dokumentację</p></li>
 </ul>
 <div class="highlight-Sh notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span><span class="w"> </span>docs/generate.sh
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>Open <code class="docutils literal notranslate"><span class="pre">docs.html</span></code></p></li>
+<li><p>Otwórz powstały plik <code class="docutils literal notranslate"><span class="pre">docs.html</span></code></p></li>
 </ul>
 </section>
-<section id="usage">
-<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this heading"></a></h2>
-<p>To start the game run:</p>
+<section id="testy">
+<h2>Testy<a class="headerlink" href="#testy" title="Permalink to this heading"></a></h2>
+<p>Do testowania używam biblioteki <em>pytest</em>. Testy znajdują się w katalogu <code class="docutils literal notranslate"><span class="pre">tests</span></code> - należy wskazać go pytestowi</p>
+<blockquote>
+<div><p>W głównym folderze znajduje się plik <code class="docutils literal notranslate"><span class="pre">pytest.ini</span></code> jest on bardzo ważny, ponieważ umożliwia wykrywanie testów znajdujących się w innym katalogu niż kod</p>
+</div></blockquote>
+<blockquote>
+<div><p>W folderze <code class="docutils literal notranslate"><span class="pre">tests</span></code> poza plikami testowymi znajduje się plik <code class="docutils literal notranslate"><span class="pre">conftest.py</span></code>. Jego zawartość wykonuje się przed wykonaniem testów. Usuwa on plik konfiguracyjny użytkownika <code class="docutils literal notranslate"><span class="pre">configs/user_config.json</span></code> jeśli taki istnieje</p>
+</div></blockquote>
+</section>
+<section id="dzialanie">
+<h2>Działanie<a class="headerlink" href="#dzialanie" title="Permalink to this heading"></a></h2>
+<section id="wlaczenie-gry">
+<h3>Włączenie gry<a class="headerlink" href="#wlaczenie-gry" title="Permalink to this heading"></a></h3>
+<p>Żeby włączyć grę należy z głównego folderu repozytorium uruchomić komendę:</p>
 <div class="highlight-Sh notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>app
 </pre></div>
 </div>
-<p>in the repository root directory</p>
 </section>
-<section id="configuration">
-<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this heading"></a></h2>
-<p>You can configure the game by creating a config file: <code class="docutils literal notranslate"><span class="pre">configs/user_config.json</span></code> based on <code class="docutils literal notranslate"><span class="pre">configs/default_config.json</span></code>.</p>
-<p>or you can use the in-game settings</p>
+<section id="ekran-glowny">
+<h3>Ekran główny<a class="headerlink" href="#ekran-glowny" title="Permalink to this heading"></a></h3>
+<p><img alt="screenshot" src="docs/imgs/mainScreen.png" /></p>
+<blockquote>
+<div><p>Jeśli ekran nie wyświetla się poprawnie, należy powiększyć okno terminala</p>
+</div></blockquote>
+<p>Wszystkie menu w programie nawigowane są poprzez używanie <em>strzałek</em> i przycisku <em>Enter</em></p>
+<p>Na głównym ekranie możemy wybrać pomiędzy 2 trybami gry:</p>
+<ul class="simple">
+<li><p>Walka z komputerem</p></li>
+<li><p>Walka z innym graczem</p></li>
+</ul>
+<p>Można również przejść do ustawień</p>
+</section>
+<section id="przygotowanie-planszy">
+<h3>Przygotowanie planszy<a class="headerlink" href="#przygotowanie-planszy" title="Permalink to this heading"></a></h3>
+<p><img alt="screenshot" src="docs/imgs/boardSetup.png" /></p>
+<p>Oba tryby gry zaczynają się od podania imion graczy i przygotowania planszy. W przypadku walki z innym graczem następuje to dwukrotnie.</p>
+<p>Użytkownik po kolei musi romieścić swoje statki na planszy.</p>
+<p>Możliwe jest:</p>
+<ul class="simple">
+<li><p>Obracanie i przemieszczanie statków</p></li>
+<li><p>Edytowanie swojego ustawienia</p></li>
+<li><p>Cofanie</p></li>
+<li><p>Automatyczne rozstawienie (które można potem zmodyfikować samemu)</p></li>
+</ul>
+<p>W liście z prawej strony wyświetla się typ obecnie edytowanego statku i lista statków, które jeszcze należy rozmieścić</p>
+</section>
+<section id="walka-z-komputerem">
+<h3>Walka z komputerem<a class="headerlink" href="#walka-z-komputerem" title="Permalink to this heading"></a></h3>
+<p><img alt="screenshot" src="docs/imgs/aiFight.gif" /></p>
+<p>W tym trybie użytkownik walczy z komputerem, który gra za pomocą zmodyfikowanego przeze mnie algorytmu <strong>hunt/target</strong> (między innymi opisanego <a class="reference external" href="https://towardsdatascience.com/coding-an-intelligent-battleship-agent-bf0064a4b319">tutaj</a>)</p>
+<section id="krotki-opis-algorytmu">
+<h4>Krótki opis algorytmu<a class="headerlink" href="#krotki-opis-algorytmu" title="Permalink to this heading"></a></h4>
+<p>Tryb hunt:</p>
+<ol class="simple">
+<li><p>Komputer strzela w losowe pola.</p></li>
+<li><p>Zapamiętuje gdzie strzelał wcześniej, żeby się nie powtarzać.</p></li>
+<li><p>Jeśli trafi to dodaje sąsiadujące komórki do listy celów i przechodzi w tryb <em>target</em></p></li>
+</ol>
+<p>Tryb target:</p>
+<ol class="simple">
+<li><p>Komputer strzela po kolei w komórki na liście celów</p></li>
+<li><p>Po ustrzeleniu kolejnej komórki usuwa on z listy celów elementy, które leżą w innej osi niż statek (mając do dyspozycji już 2 trafione komórki oś statku da się już ustalić)</p></li>
+<li><p>Komputer uzupełnia listę celów o swoją sąsiadującą komórkę w osi statku.</p></li>
+<li><p>Komputer powtarza kroki 1-4 aż do zatopienia statku. Po zatopieniu statku wraca on do trybu <em>hunt</em></p></li>
+</ol>
+</section>
+</section>
+<section id="walka-z-innym-graczem">
+<h3>Walka z innym graczem<a class="headerlink" href="#walka-z-innym-graczem" title="Permalink to this heading"></a></h3>
+<p><img alt="screenshot" src="docs/imgs/pvp.png" /></p>
+<p>W trybie walki z innym graczem 2 osoby mogą walczyć na jednym komputerze wykonując ruchy na zmianę</p>
+</section>
+<section id="zakonczenie-walki">
+<h3>Zakończenie walki<a class="headerlink" href="#zakonczenie-walki" title="Permalink to this heading"></a></h3>
+<p><img alt="screenshot" src="docs/imgs/end.png" /></p>
+<p>Kiedy jednemu graczowi zatoną wszystkie statki - gra się końćzy i wyświetlany jest jej wynik.
+W tym momencie można grę zakończyć lub zacząć od nowa (wrócić do menu)</p>
+</section>
+<section id="ustawienia">
+<h3>Ustawienia<a class="headerlink" href="#ustawienia" title="Permalink to this heading"></a></h3>
+<p><img alt="screenshot" src="docs/imgs/settings.png" /></p>
+<p>Gra pozwala na modyfikację pewnych ustawień za pomocą tekstowego menu. Ustawienia te są zapisywane w pliku <code class="docutils literal notranslate"><span class="pre">configs/user_config.json</span></code>. Jeśli zmieni się ustawienia i uruchomi się aplikacje ponownie - nie wrócą one do swoich wcześniejszych wartości (w tym celu należy zresetować je opcją <em>restore defaults</em>).</p>
+<p>Ustawienia podstawowe bazowane są na pliku <code class="docutils literal notranslate"><span class="pre">configs/default_config.json</span></code>. Nie należy go modyfikować. Można za to stworzyć ręcznie plik <code class="docutils literal notranslate"><span class="pre">configs/user_config.json</span></code> na jego wzór. Lepszą metodą jednak jest modyfikacja ustawień poprzez wyżej pokazany przeznaczony do tego interface w aplikacji.</p>
+</section>
+</section>
+<section id="ui">
+<h2>UI<a class="headerlink" href="#ui" title="Permalink to this heading"></a></h2>
+<p>Zdecydowałem się na interface tekstowy za pomocą biblioteki <code class="docutils literal notranslate"><span class="pre">curses</span></code>.</p>
+<p>Interface użytkownika zaimplementowałem jako klasę <code class="docutils literal notranslate"><span class="pre">ui.CLI</span></code>. Takie rozwiązanie sprawia, że zamienienie CLI na GUI wymaga jedynie implementacji jednego nowego obiektu, który posiadałby takie analogiczne metody. Cała reszta kodu jest od niego niezależna</p>
+<section id="modyfikacja-cli">
+<h3>Modyfikacja CLI<a class="headerlink" href="#modyfikacja-cli" title="Permalink to this heading"></a></h3>
+<p>W pliku <code class="docutils literal notranslate"><span class="pre">app/cli_config.py</span></code> znajdują się stałe umożliwiające łątwą modyfikację CLI</p>
+</section>
+</section>
+<section id="uwagi">
+<h2>Uwagi<a class="headerlink" href="#uwagi" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Jako lintera używałem flake8 z następującą konfiguracją:</p></li>
+</ul>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="c1">#Plik: .flake8</span>
+<span class="k">[flake8]</span>
+<span class="na">per-file-ignores</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">__init__.py:F401</span>
+<span class="na">ignore</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">E501</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>W pliku <code class="docutils literal notranslate"><span class="pre">app\config.py</span></code> atrybuty klasy <code class="docutils literal notranslate"><span class="pre">Config</span></code> nazywam (wbrew typowej konwencji) wielkimi literami. Robię to, żeby w reszcie kodu wyraźnie było widać, że są to wartości z pliku konfiguracyjnego.</p></li>
+<li><p>Warstwa logiczna progamu ma 100% pokrycie w testach.</p></li>
+</ul>
+<p>Autor: Adam Szokalski</p>
 </section>
 </section>
 
